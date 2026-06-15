@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+client/node_modules/
+
+# React build
+build/
+client/build/
+
+# Truffle generated contracts
+client/src/contracts/
+
+# Accidental folder
+{contracts,migrations,test,client/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Cache and tests output
+.cache/
+.eslintcache
+coverage/
+
+# Environment
+.env
+.env.*
+!.env.example

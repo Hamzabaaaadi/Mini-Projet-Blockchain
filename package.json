@@ -1,0 +1,13 @@
+{
+  "name": "dapp-tp3",
+  "version": "1.0.0",
+  "description": "dApp pour les TPs Solidity - Blockchain et Web3",
+  "scripts": {
+    "migrate": "truffle migrate --reset",
+    "test": "truffle test",
+    "compile": "truffle compile"
+  },
+  "devDependencies": {
+    "truffle": "^5.11.0"
+  }
+}
