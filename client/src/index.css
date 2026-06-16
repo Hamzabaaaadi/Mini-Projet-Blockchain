@@ -1,30 +1,51 @@
-
+/* ==========================================================================
+   1. VARIABLES & DESIGN SYSTEM (Palette Claire Professionnelle)
+   ========================================================================== */
 :root {
-  /* Palette claire en RGB pour une meilleure lisibilite */
+  /* Palette claire en RGB pour une meilleure lisibilité */
   --bg: rgb(232, 244, 255);
   --bg2: rgb(255, 255, 255);
   --bg3: rgb(243, 248, 252);
   --surface: rgb(248, 252, 255);
   --border: rgb(195, 214, 230);
 
+  /* Couleurs d'accentuation */
   --accent: rgb(20, 86, 204);
   --accent2: rgb(0, 137, 123);
   --accent3: rgb(196, 101, 14);
 
+  /* États (Succès / Erreur) */
   --green: rgb(0, 135, 92);
   --red: rgb(205, 45, 45);
 
-  --text: rgb(18, 31, 48);
-  --text2: rgb(54, 72, 94);
-  --text3: rgb(91, 111, 132);
+  /* Couleurs de texte — renforcées pour le contraste */
+  --text:  rgb(10, 20, 36);       /* Quasi-noir profond, très lisible */
+  --text2: rgb(30, 52, 80);       /* Bleu-ardoise foncé (étiquettes, sous-titres) */
+  --text3: rgb(68, 92, 116);      /* Gris-bleu moyen (placeholders, méta) */
 
+  /* Typographie */
   --mono: 'Space Mono', monospace;
   --sans: 'Syne', sans-serif;
+
+  /* Structure & Effets */
   --radius: 8px;
   --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+  --shadow-hover: 0 22px 55px rgba(15, 23, 42, 0.12);
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* ==========================================================================
+   2. GLOBAL RESET & BASE STYLES
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+}
 
 body {
   background:
@@ -34,39 +55,60 @@ body {
     var(--bg);
   color: var(--text);
   font-family: var(--sans);
-  min-height: 100vh;
-  line-height: 1.6;
+  font-size: 1rem;        /* Base saine : 16 px navigateur standard */
+  line-height: 1.65;
+  overflow-x: hidden;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
+/* Personnalisation Scrollbar */
+::-webkit-scrollbar       { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg2); }
 ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
 
-/* Layout */
+/* ==========================================================================
+   3. LAYOUT (Full Browser Window)
+   ========================================================================== */
 .page {
   min-height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
 }
 
 .page-header {
   background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
   box-shadow: 0 1px 0 rgba(15, 23, 42, 0.03);
   padding: 16px 32px;
   display: flex;
   align-items: center;
   gap: 16px;
+  width: 100%;
 }
 
 .page-header h1 {
-  font-size: 1.25rem;
+  font-size: 5rem;      /* Titre principal — grand et percutant */
   font-weight: 700;
   color: var(--text);
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
 }
 
+.page-body {
+  flex: 1;
+  width: 100%;
+  padding: 32px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ==========================================================================
+   4. COMPOSANTS
+   ========================================================================== */
+
+/* Back Link */
 .back-link {
   display: inline-flex;
   align-items: center;
@@ -74,49 +116,47 @@ body {
   color: var(--text2);
   text-decoration: none;
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 3rem;     /* Lisible sans voler la vedette */
   padding: 6px 12px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
+
 .back-link:hover {
   color: var(--accent);
   border-color: var(--accent);
   background: rgba(20, 86, 204, 0.08);
 }
 
-.page-body {
-  flex: 1;
-  padding: 32px;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-/* Cards */
+/* Cartes */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 24px;
+  padding: 28px;           /* Légèrement plus aéré */
   box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
 }
 
 .card-title {
-  font-size: 0.7rem;
+  font-size: 2rem;    
   font-family: var(--mono);
   color: var(--text3);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 16px;
+  letter-spacing: 0.14em;
+  margin-bottom: 18px;
   display: flex;
   align-items: center;
   gap: 8px;
 }
+
 .card-title::before {
   content: '';
   width: 6px;
@@ -126,18 +166,19 @@ body {
   display: inline-block;
 }
 
-/* Form elements */
+/* Groupes de Formulaires */
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .form-group label {
-  font-size: 0.75rem;
+  font-size: 2rem;     /* Label clair, au-dessus du champ */
   color: var(--text2);
   font-family: var(--mono);
+  font-weight: 700;
 }
 
 .form-input {
@@ -146,48 +187,53 @@ body {
   border-radius: var(--radius);
   color: var(--text);
   font-family: var(--mono);
-  font-size: 0.85rem;
-  padding: 10px 14px;
+  font-size: 2rem;       
+  padding: 11px 15px;
   outline: none;
-  transition: border-color 0.2s;
+  transition: all 0.2s ease;
   width: 100%;
 }
+
 .form-input:focus {
   border-color: var(--accent);
   background: rgb(255, 255, 255);
   box-shadow: 0 0 0 3px rgba(20, 86, 204, 0.14);
 }
+
 .form-input::placeholder {
   color: var(--text3);
 }
 
-/* Buttons */
+/* Boutons */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 20px;
+  padding: 11px 22px;
   border-radius: var(--radius);
   font-family: var(--mono);
-  font-size: 0.78rem;
+  font-size: 2rem;     /* Texte bouton confortable */
   font-weight: 700;
   cursor: pointer;
   border: none;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   white-space: nowrap;
 }
+
 .btn:disabled {
   opacity: 0.4;
   cursor: not-allowed;
 }
+
 .btn-primary {
   background: var(--accent);
-  color: white;
+  color: #ffffff;
 }
 .btn-primary:hover:not(:disabled) {
   background: rgb(14, 67, 168);
   transform: translateY(-1px);
 }
+
 .btn-secondary {
   background: transparent;
   color: var(--accent2);
@@ -196,16 +242,18 @@ body {
 .btn-secondary:hover:not(:disabled) {
   background: rgba(0, 137, 123, 0.1);
 }
+
 .btn-success {
   background: var(--green);
-  color: rgb(255, 255, 255);
+  color: #ffffff;
 }
 .btn-success:hover:not(:disabled) {
   background: rgb(5, 150, 105);
 }
+
 .btn-warning {
   background: var(--accent3);
-  color: rgb(255, 255, 255);
+  color: #ffffff;
 }
 .btn-warning:hover:not(:disabled) {
   background: rgb(166, 79, 5);
@@ -217,24 +265,26 @@ body {
   gap: 10px;
 }
 
-/* Result */
+/* Zone de Résultat */
 .result-box {
   background: rgb(255, 255, 255);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 16px;
+  padding: 18px;
   font-family: var(--mono);
-  font-size: 0.82rem;
-  min-height: 50px;
+  font-size: 1.5rem;        
+  min-height: 54px;
   color: var(--text);
   word-break: break-all;
   white-space: pre-wrap;
+  line-height: 1.7;
 }
-.result-box.success { border-color: var(--green); color: var(--green); }
-.result-box.error { border-color: var(--red); color: var(--red); }
-.result-box.info { border-color: var(--accent); color: var(--accent); }
 
-/* Loading */
+.result-box.success { border-color: var(--green); color: var(--green); }
+.result-box.error   { border-color: var(--red);   color: var(--red);   }
+.result-box.info    { border-color: var(--accent); color: var(--accent);}
+
+/* Animation de Chargement */
 .loading {
   display: inline-block;
   width: 12px;
@@ -244,28 +294,27 @@ body {
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
 }
-@keyframes spin { to { transform: rotate(360deg); } }
 
-/* Error banner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Bannière d'Erreur */
 .error-banner {
   background: rgba(220, 38, 38, 0.08);
   border: 1px solid var(--red);
   border-radius: var(--radius);
-  padding: 12px 16px;
+  padding: 14px 18px;
   color: var(--red);
-  font-size: 0.82rem;
+  font-size: 2rem;     /* Erreur visible immédiatement */
   font-family: var(--mono);
 }
 
-/* Info grid */
+/* Grille d'Informations */
 .info-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
-}
-@media (max-width: 768px) {
-  .info-grid { grid-template-columns: 1fr; }
-  .page-body { padding: 16px; }
 }
 
 .info-section {
@@ -273,31 +322,49 @@ body {
   flex-direction: column;
   gap: 8px;
 }
+
 .info-section h3 {
-  font-size: 0.75rem;
+  font-size: 2rem;
   font-family: var(--mono);
   color: var(--accent2);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 4px;
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
 }
 
 .info-row {
   display: flex;
   gap: 8px;
-  font-size: 0.75rem;
+  font-size: 2rem;      /* Lignes d'info lisibles sans surcharger */
   font-family: var(--mono);
-  line-height: 1.5;
+  line-height: 1.6;
 }
+
 .info-label {
   color: var(--text3);
-  min-width: 120px;
+  min-width: 250px;
   flex-shrink: 0;
 }
+
 .info-value {
   color: var(--text);
   word-break: break-all;
 }
+
 .info-value.accent { color: var(--accent2); }
-.info-value.green { color: var(--green); }
-.info-value.red { color: var(--red); }
+.info-value.green  { color: var(--green);   }
+.info-value.red    { color: var(--red);     }
+
+/* ==========================================================================
+   5. RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 768px) {
+  .info-grid  { grid-template-columns: 1fr; }
+  .page-body  { padding: 16px; }
+  .page-header { padding: 14px 16px; }
+
+  .page-header h1 { font-size: 1.25rem; }
+  .btn            { font-size: 0.9rem; padding: 10px 18px; }
+  .form-input     { font-size: 0.95rem; }
+  .result-box     { font-size: 2rem; }
+}

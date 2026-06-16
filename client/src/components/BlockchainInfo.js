@@ -16,18 +16,18 @@ export default function BlockchainInfo({ info, txList }) {
           </div>
           <div style={{ marginBottom: 12 }}>
             <div className="info-row"><span className="info-label">Infos du contrat :</span></div>
-            <div className="info-row"><span className="info-label">Adresse :</span><span className="info-value" style={{ fontSize: '0.68rem' }}>{info.contract.address}</span></div>
-            <div className="info-row"><span className="info-label">Compte :</span><span className="info-value" style={{ fontSize: '0.68rem' }}>{info.contract.account}</span></div>
+            <div className="info-row"><span className="info-label">Adresse :</span><span className="info-value" style={{ fontSize: '2rem' }}>{info.contract.address}</span></div>
+            <div className="info-row"><span className="info-label">Compte :</span><span className="info-value" style={{ fontSize: '2rem' }}>{info.contract.account}</span></div>
           </div>
           <div>
             <div className="info-row"><span className="info-label">Dernier bloc :</span></div>
             <div className="info-row"><span className="info-label">N° :</span><span className="info-value accent">#{info.block.number}</span></div>
-            <div className="info-row"><span className="info-label">Hash :</span><span className="info-value" style={{ fontSize: '0.68rem' }}>{info.block.hash}</span></div>
+            <div className="info-row"><span className="info-label">Hash :</span><span className="info-value" style={{ fontSize: '2rem' }}>{info.block.hash}</span></div>
             <div className="info-row"><span className="info-label">Timestamp :</span><span className="info-value">{info.block.timestamp}</span></div>
-            <div className="info-row"><span className="info-label">parentHash :</span><span className="info-value" style={{ fontSize: '0.68rem' }}>{info.block.parentHash}</span></div>
+            <div className="info-row"><span className="info-label">parentHash :</span><span className="info-value" style={{ fontSize: '2rem' }}>{info.block.parentHash}</span></div>
             <div className="info-row"><span className="info-label">nonce :</span><span className="info-value">{info.block.nonce}</span></div>
             <div className="info-row"><span className="info-label">transactions :</span><span className="info-value">{info.block.transactions}</span></div>
-            <div className="info-row"><span className="info-label">miner :</span><span className="info-value" style={{ fontSize: '0.68rem' }}>{info.block.miner}</span></div>
+            <div className="info-row"><span className="info-label">miner :</span><span className="info-value" style={{ fontSize: '2rem' }}>{info.block.miner}</span></div>
             <div className="info-row"><span className="info-label">difficulty :</span><span className="info-value">{info.block.difficulty}</span></div>
             <div className="info-row"><span className="info-label">gasLimit :</span><span className="info-value">{info.block.gasLimit}</span></div>
             <div className="info-row"><span className="info-label">gasUsed :</span><span className="info-value">{info.block.gasUsed}</span></div>
@@ -44,9 +44,9 @@ export default function BlockchainInfo({ info, txList }) {
                   <span className="info-value" style={{ color: 'var(--accent2)', fontWeight: 700 }}>Transaction #{i + 1}</span>
                 </div>
                 <div className="info-row"><span className="info-label">Numéro :</span><span className="info-value">{i + 1}</span></div>
-                <div className="info-row"><span className="info-label">Expéditeur :</span><span className="info-value" style={{ fontSize: '0.68rem' }}>{tx.from}</span></div>
-                <div className="info-row"><span className="info-label">Destinataire :</span><span className="info-value" style={{ fontSize: '0.68rem' }}>{tx.to}</span></div>
-                <div className="info-row"><span className="info-label">Hash :</span><span className="info-value" style={{ fontSize: '0.68rem' }}>{tx.hash}</span></div>
+                <div className="info-row"><span className="info-label">Expéditeur :</span><span className="info-value" style={{ fontSize: '1em' }}>{tx.from}</span></div>
+                <div className="info-row"><span className="info-label">Destinataire :</span><span className="info-value" style={{ fontSize: '2rem' }}>{tx.to}</span></div>
+                <div className="info-row"><span className="info-label">Hash :</span><span className="info-value" style={{ fontSize: '2rem' }}>{tx.hash}</span></div>
                 <div className="info-row"><span className="info-label">Bloc :</span><span className="info-value">{tx.blockNumber}</span></div>
                 <div className="info-row"><span className="info-label">Gas utilisé :</span><span className="info-value">{tx.gasUsed}</span></div>
                 <div className="info-row"><span className="info-label">Statut :</span>
