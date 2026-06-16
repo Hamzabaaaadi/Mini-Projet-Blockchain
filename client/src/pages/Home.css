@@ -4,59 +4,80 @@
   overflow: hidden;
 }
 
+/* Background lumineux */
 .home-bg {
   position: fixed;
   inset: 0;
   background:
-    linear-gradient(135deg, rgba(20, 86, 204, 0.16) 0%, transparent 42%),
-    linear-gradient(315deg, rgba(0, 137, 123, 0.14) 0%, transparent 42%),
-    linear-gradient(180deg, rgb(246, 251, 255) 0%, rgb(226, 242, 255) 100%);
+    linear-gradient(
+      135deg,
+      rgba(0, 140, 255, 0.20) 0%,
+      transparent 45%
+    ),
+    linear-gradient(
+      315deg,
+      rgba(0, 255, 213, 0.18) 0%,
+      transparent 45%
+    ),
+    linear-gradient(
+      180deg,
+      rgb(245, 250, 255) 0%,
+      rgb(215, 235, 255) 100%
+    );
   pointer-events: none;
   z-index: 0;
 }
 
+/* Header plus lumineux */
 .home-header {
   position: relative;
   z-index: 1;
   text-align: center;
   padding: 72px 32px 48px;
-  border-bottom: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(248, 252, 255, 0.78) 100%);
+  border-bottom: 1px solid rgb(180, 220, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.97) 0%,
+    rgba(235, 247, 255, 0.92) 100%
+  );
 }
 
+/* Badge lumineux */
 .home-badge {
   display: inline-block;
   font-family: var(--mono);
   font-size: 0.7rem;
-  color: var(--accent);
-  border: 1px solid var(--accent);
+  color: rgb(0, 102, 255);
+  border: 1px solid rgb(0, 153, 255);
+  background: rgba(0, 140, 255, 0.08);
   border-radius: 100px;
-  padding: 4px 14px;
+  padding: 5px 14px;
   margin-bottom: 20px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
+/* Titre plus visible */
 .home-title {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 800;
-  letter-spacing: 0;
   line-height: 1.1;
-  color: var(--text);
+  color: rgb(15, 23, 42);
   margin-bottom: 10px;
 }
 
+/* Sous-titre lumineux */
 .home-subtitle {
   font-size: clamp(1rem, 2.5vw, 1.4rem);
-  color: var(--accent2);
-  font-weight: 600;
+  color: rgb(0, 120, 255);
+  font-weight: 700;
   margin-bottom: 8px;
 }
 
 .home-tech {
   font-family: var(--mono);
   font-size: 0.8rem;
-  color: var(--text3);
+  color: rgb(90, 110, 130);
   letter-spacing: 0.05em;
 }
 
@@ -71,38 +92,42 @@
 .exercises-grid {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
 
+/* Cards plus lumineuses */
 .ex-card {
   display: flex;
   align-items: center;
   gap: 20px;
   padding: 18px 24px;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgb(190, 225, 255);
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(0, 120, 255, 0.10);
   text-decoration: none;
   color: inherit;
-  transition: all 0.2s;
+  transition: all 0.25s ease;
 }
+
+/* Hover lumineux */
 .ex-card:hover {
-  border-color: rgba(20, 86, 204, 0.45);
-  background: rgb(247, 252, 255);
-  transform: translateX(4px);
-  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.1);
+  border-color: rgb(0, 140, 255);
+  background: rgb(240, 249, 255);
+  transform: translateX(6px);
+  box-shadow: 0 18px 40px rgba(0, 140, 255, 0.18);
 }
+
 .ex-card:hover .ex-arrow {
-  color: var(--accent);
-  transform: translateX(4px);
+  color: rgb(0, 120, 255);
+  transform: translateX(5px);
 }
 
 .ex-num {
   font-family: var(--mono);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  color: var(--accent);
+  color: rgb(0, 102, 255);
   min-width: 36px;
 }
 
@@ -110,42 +135,52 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
 
 .ex-title {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--text);
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgb(25, 35, 50);
 }
 
 .ex-desc {
   font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--text3);
+  font-size: 0.75rem;
+  color: rgb(90, 110, 130);
 }
 
 .ex-arrow {
-  color: var(--text3);
-  font-size: 1.1rem;
-  transition: all 0.2s;
+  color: rgb(120, 140, 160);
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
 }
 
+/* Footer clair */
 .home-footer {
   position: relative;
   z-index: 1;
-  border-top: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.84);
+  border-top: 1px solid rgb(200, 225, 255);
+  background: rgba(255, 255, 255, 0.92);
   padding: 20px 32px;
   display: flex;
   justify-content: space-between;
   font-family: var(--mono);
   font-size: 0.72rem;
-  color: var(--text3);
+  color: rgb(100, 120, 140);
 }
 
 @media (max-width: 600px) {
-  .home-header { padding: 40px 16px 32px; }
-  .home-main { padding: 24px 16px; }
-  .home-footer { flex-direction: column; gap: 4px; }
+  .home-header {
+    padding: 40px 16px 32px;
+  }
+
+  .home-main {
+    padding: 24px 16px;
+  }
+
+  .home-footer {
+    flex-direction: column;
+    gap: 4px;
+  }
 }

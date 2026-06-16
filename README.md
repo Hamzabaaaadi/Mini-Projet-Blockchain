@@ -1,5 +1,3 @@
-Blockchain & Web3
-**Module** : Blockchain et Web3 | **Filière** : CI-ILIA S4 | **Professeur** : M. OUALLA
 
 Application décentralisée (dApp) pour interagir avec les 8 contrats Solidity du TP 3.
 
