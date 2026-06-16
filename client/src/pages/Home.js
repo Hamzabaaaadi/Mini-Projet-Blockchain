@@ -19,7 +19,6 @@ export default function Home() {
       <div className="home-bg" />
       <header className="home-header">
         <div className="home-header-inner">
-          <div className="home-badge">Blockchain & Web3 · S4</div>
           <h1 className="home-title">Projet de Fin de Module</h1>
           <p className="home-subtitle">Développement d'une dApp pour le TP 3</p>
           <p className="home-tech">Solidity · Truffle · ReactJS · Web3.js</p>
